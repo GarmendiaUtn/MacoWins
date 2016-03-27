@@ -19,11 +19,11 @@ public class Venta {
 		return cantidad;
 	}
 
-	public String fecha(){
+	public String fecha() {
 		return fecha;
 	}
 
-	public Double totalCon(Double unValorFijo){
+	public Double totalCon(Double unValorFijo) {
 		return this.prenda().precioCon(unValorFijo) * this.cantidad();
 	}
 }
