@@ -18,7 +18,7 @@ public class NegocioTest {
 	public void testValorDeUnaPrendaInternacional() {
 		TipoPrenda unTipoPrenda = new TipoPrenda("Camisa", 10);
 		Internacional unaPrenda = new Internacional(unTipoPrenda);
-		Negocio unNegocio = new Negocio(20.0, unaPrenda);
+		Negocio unNegocio = new Negocio(20.0);
 		Assert.assertTrue((unNegocio.precioPara(unaPrenda)) == ((20 + 10) * 1.3));
 	}
 
@@ -26,7 +26,7 @@ public class NegocioTest {
 	public void testValorDeUnaPrendaNacional() {
 		TipoPrenda unTipoPrenda = new TipoPrenda("Camisa", 10);
 		Nacional unaPrenda = new Nacional(unTipoPrenda);
-		Negocio unNegocio = new Negocio(20.0, unaPrenda);
+		Negocio unNegocio = new Negocio(20.0);
 		Assert.assertTrue((unNegocio.precioPara(unaPrenda)) == (20 + 10));
 	}
 
@@ -44,7 +44,7 @@ public class NegocioTest {
 		List<Venta> ventas = new ArrayList<Venta>();
 		ventas.add(unaVentaCamisa);
 		ventas.add(unaVentaPantalon);
-		Negocio unNegocio = new Negocio(20.0, prendas, ventas);
+		Negocio unNegocio = new Negocio(20.0, ventas);
 		Assert.assertTrue((unNegocio.totalVendidoEn("12/12/2015")) == (((20 + 10) * 1.3 * 3) + ((20 + 15) * 5)));
 	}
 
@@ -62,10 +62,10 @@ public class NegocioTest {
 		List<Venta> ventas = new ArrayList<Venta>();
 		ventas.add(unaVentaCamisa);
 		ventas.add(unaVentaPantalon);
-		Negocio unNegocio = new Negocio(20.0, prendas, ventas);
+		Negocio unNegocio = new Negocio(20.0, ventas);
 		Assert.assertTrue((unNegocio.totalVendidoEn("12/12/2015")) == (((20 + 15) * 5)));
 	}
-	
+
 	@Test
 	public void testTotalVentaSinOperacionesALaFecha() {
 		TipoPrenda unTipoPrendaCamisa = new TipoPrenda("Camisa", 10);
@@ -80,7 +80,7 @@ public class NegocioTest {
 		List<Venta> ventas = new ArrayList<Venta>();
 		ventas.add(unaVentaCamisa);
 		ventas.add(unaVentaPantalon);
-		Negocio unNegocio = new Negocio(20.0, prendas, ventas);
+		Negocio unNegocio = new Negocio(20.0, ventas);
 		Assert.assertTrue((unNegocio.totalVendidoEn("11/12/2015")) == 0);
 	}
 }

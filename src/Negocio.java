@@ -5,21 +5,14 @@ import java.util.Iterator;
 public class Negocio {
 
 	private Double valorFijo;
-	List<Prenda> prendas = new ArrayList<Prenda>();
 	List<Venta> ventas = new ArrayList<Venta>();
 
 	public Negocio(Double unValorFijo) {
 		valorFijo = unValorFijo;
 	}
 
-	public Negocio(Double unValorFijo, Prenda unaPrenda) {
+	public Negocio(Double unValorFijo, List<Venta> unasVentas) {
 		valorFijo = unValorFijo;
-		prendas.add(unaPrenda);
-	}
-
-	public Negocio(Double unValorFijo, List<Prenda> unasPrendas, List<Venta> unasVentas) {
-		valorFijo = unValorFijo;
-		prendas.addAll(unasPrendas);
 		ventas.addAll(unasVentas);
 	}
 
