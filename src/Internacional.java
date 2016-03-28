@@ -4,8 +4,8 @@ public class Internacional extends Prenda {
 		super(unTipoPrenda);
 	}
 
-	public Double precioCon(Double unValorFijo) {
-		return (super.precioCon(unValorFijo) * 1.3);
+	public Double tasaImportacion() {
+		return 1.3;
 	}
 
 }

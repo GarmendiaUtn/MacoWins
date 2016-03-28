@@ -4,7 +4,7 @@ public class Nacional extends Prenda {
 		super(unTipoPrenda);
 	}
 
-	public Double precioCon(Double unValorFijo) {
-		return (super.precioCon(unValorFijo));
+	public Double tasaImportacion() {
+		return 1.0;
 	}
 }

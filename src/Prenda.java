@@ -1,5 +1,6 @@
 
 public abstract class Prenda {
+
 	private TipoPrenda tipoPrenda;
 
 	public Prenda(TipoPrenda unTipoPrenda) {
@@ -11,6 +12,11 @@ public abstract class Prenda {
 	}
 
 	public Double precioCon(Double unValorFijo) {
-		return tipoPrenda.precioBase() + unValorFijo;
+		return (tipoPrenda.precioBase() + unValorFijo) * this.tasaImportacion();
 	}
+
+	public Double tasaImportacion() {
+		return 0.0;
+	}
+
 }
