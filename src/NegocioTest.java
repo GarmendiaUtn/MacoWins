@@ -8,9 +8,10 @@ public class NegocioTest {
 
 	@Test
 	public void testCreacionInstancia() {
-		Negocio unNegocio = new Negocio(10.0);
+		final double valorEsperado = 10.0;
+		Negocio unNegocio = new Negocio(valorEsperado);
 		// Assert.assertTrue(unNegocio.prendas().size() == 0);
-		Assert.assertTrue(unNegocio.valorFijo() == 10);
+		Assert.assertEquals(valorEsperado, unNegocio.valorFijo(), 0.0);
 		// Assert.assertTrue(unNegocio.ventas().size() == 0);
 	}
 
@@ -19,7 +20,8 @@ public class NegocioTest {
 		TipoPrenda unTipoPrenda = new TipoPrenda("Camisa", 10);
 		Internacional unaPrenda = new Internacional(unTipoPrenda);
 		Negocio unNegocio = new Negocio(20.0);
-		Assert.assertTrue((unNegocio.precioPara(unaPrenda)) == ((20 + 10) * 1.3));
+		final double valorEsperado = (20 + 10) * 1.3;
+		Assert.assertEquals(valorEsperado, (unNegocio.precioPara(unaPrenda)), 0.0);
 	}
 
 	@Test
@@ -27,7 +29,8 @@ public class NegocioTest {
 		TipoPrenda unTipoPrenda = new TipoPrenda("Camisa", 10);
 		Nacional unaPrenda = new Nacional(unTipoPrenda);
 		Negocio unNegocio = new Negocio(20.0);
-		Assert.assertTrue((unNegocio.precioPara(unaPrenda)) == (20 + 10));
+		final int valorEsperado = 20 + 10;
+		Assert.assertTrue((unNegocio.precioPara(unaPrenda)) == valorEsperado);
 	}
 
 	@Test
@@ -45,7 +48,8 @@ public class NegocioTest {
 		ventas.add(unaVentaCamisa);
 		ventas.add(unaVentaPantalon);
 		Negocio unNegocio = new Negocio(20.0, ventas);
-		Assert.assertTrue((unNegocio.totalVendidoEn("12/12/2015")) == (((20 + 10) * 1.3 * 3) + ((20 + 15) * 5)));
+		final double valorEsperado = ((20 + 10) * 1.3 * 3) + ((20 + 15) * 5);
+		Assert.assertEquals(valorEsperado, (unNegocio.totalVendidoEn("12/12/2015")), 0.0);
 	}
 
 	@Test
@@ -63,7 +67,8 @@ public class NegocioTest {
 		ventas.add(unaVentaCamisa);
 		ventas.add(unaVentaPantalon);
 		Negocio unNegocio = new Negocio(20.0, ventas);
-		Assert.assertTrue((unNegocio.totalVendidoEn("12/12/2015")) == (((20 + 15) * 5)));
+		final int valorEsperado = (20 + 15) * 5;
+		Assert.assertEquals(valorEsperado, (unNegocio.totalVendidoEn("12/12/2015")), 0.0);
 	}
 
 	@Test
@@ -81,6 +86,7 @@ public class NegocioTest {
 		ventas.add(unaVentaCamisa);
 		ventas.add(unaVentaPantalon);
 		Negocio unNegocio = new Negocio(20.0, ventas);
-		Assert.assertTrue((unNegocio.totalVendidoEn("11/12/2015")) == 0);
+		final int valorEsperado = 0;
+		Assert.assertEquals(valorEsperado, (unNegocio.totalVendidoEn("11/12/2015")), 0.0);
 	}
 }
